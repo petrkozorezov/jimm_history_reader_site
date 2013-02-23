@@ -23,14 +23,15 @@ start_link() ->
 
 init([]) ->
     {ok, BindAddress} = application:get_env(cowboy, bind_address),
-    {ok, Port} = application:get_env(cowboy, port),
+    {ok, ConfigPort} = application:get_env(cowboy, port),
     {ok, ServerName} = application:get_env(cowboy, server_name),
     {ok, DocRoot} = application:get_env(cowboy, document_root),
     {ok, StaticPaths} = application:get_env(cowboy, static_paths),
     DocRootBin = wf:to_binary(DocRoot),
+    Port = heroku:port(ConfigPort),
 
     io:format("Starting Cowboy Server (~s) on ~s:~p, root: '~s'~n",
-              [ServerName, BindAddress, heroku:port(Port), DocRoot]),
+              [ServerName, BindAddress, Port, DocRoot]),
 
     StaticDispatches = lists:map(fun(Dir) ->
         Path = reformat_path(Dir),

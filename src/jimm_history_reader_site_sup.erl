@@ -30,7 +30,7 @@ init([]) ->
     DocRootBin = wf:to_binary(DocRoot),
 
     io:format("Starting Cowboy Server (~s) on ~s:~p, root: '~s'~n",
-              [ServerName, BindAddress, Port, DocRoot]),
+              [ServerName, BindAddress, heroku:port(Port), DocRoot]),
 
     StaticDispatches = lists:map(fun(Dir) ->
         Path = reformat_path(Dir),

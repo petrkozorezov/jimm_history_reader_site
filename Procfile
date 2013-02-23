@@ -1,1 +1,1 @@
-web: ./bin/nitrogen console
+web: start.sh

@@ -1,0 +1,9 @@
+{application, jimm_history_reader_site,
+ [
+  {description, "Jimm history file reader"},
+  {vsn, "1"},
+  {registered, []},
+  {applications, [kernel, stdlib, nprocreg, cowboy]},
+  {mod, { jimm_history_reader_site, []}},
+  {env, []}
+ ]}.

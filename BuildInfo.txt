@@ -1,5 +1,0 @@
-Nitrogen Version:
-2.1.0
-
-Built On (uname -v):
-Darwin Kernel Version 12.2.1: Thu Oct 18 16:32:48 PDT 2012; root:xnu-2050.20.9~2/RELEASE_X86_64

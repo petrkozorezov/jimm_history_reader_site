@@ -59,9 +59,9 @@ finish_upload_event(history_file, FileName, LocalFileName, _) ->
 
             [
                 #panel{style="text-align:center", body=[
-                    #link{text="Save as txt", url="/save_to?format=txt&file="++FileName},
+                    #link{text="Save as txt", url="/export?format=txt&file="++FileName},
                     " | ",
-                    #link{text="Save as csv", url="/save_to?format=csv&file="++FileName}
+                    #link{text="Save as csv", url="/export?format=csv&file="++FileName}
                 ]},
                 render_messages(History)
             ]

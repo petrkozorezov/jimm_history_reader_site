@@ -1,5 +1,5 @@
 %% -*- mode: nitrogen -*-
--module(save_to).
+-module(export).
 -compile(export_all).
 -include_lib("nitrogen_core/include/wf.hrl").
 
@@ -10,11 +10,12 @@ main() ->
             ["txt"]     -> {txt, "text/plain"};
             ["csv"]     -> {csv, "text/csv"}
         end,
-    wf:header("Content-Type", ContentType),
+
     [FileName] = wf:qs(file),
     Data = wf:session("file_"++FileName),
 
-    io:format("~p~n", [wf:session("file_"++FileName)]),
+    wf:header("Content-Type", ContentType),
+    wf:header("Content-Disposition", "attachment; filename="++FileName++"."++atom_to_list(Format)),
 
     render(Format, Data).
 

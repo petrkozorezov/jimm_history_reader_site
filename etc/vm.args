@@ -27,7 +27,7 @@
 -pa ./site/ebin
 
 ## Include .beam files for dependencies.
--pa ./deps/*/ebin
+-env ERL_LIBS ./deps
 
 ## Run code at startup.
 -eval "application:start(nitrogen)"

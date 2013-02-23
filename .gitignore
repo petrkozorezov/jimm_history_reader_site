@@ -2,6 +2,6 @@ log
 logs
 deps
 *~
-*.beam
+./*.beam
 erl_crash.dump
 .eunit
